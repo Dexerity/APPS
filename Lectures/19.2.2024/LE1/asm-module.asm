@@ -52,8 +52,8 @@ cosi:
     mov [x], ecx
     mov [y], eax                    ;"vymena 2 znaku"
 
-    movsx rax, eax
-    mov [1], rax
+    ;movsx rax, eax
+    ;mov [1], rax
 
     mov byte [retezec + 4], '!'     ;retezec[4] = '!'
 

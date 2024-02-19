@@ -7,7 +7,7 @@ int max;
 long l = 0x1111111111;
 
 int pole[10] = {1,2,3,4,5,6,7,8,9,10};
-char retezec[10] = "hello";
+char retezec[10] = "ahoj.";
 
 void cosi();
 void minmax();
