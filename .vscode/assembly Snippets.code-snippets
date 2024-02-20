@@ -28,5 +28,17 @@
 		],
 		"description": "Base for an assembly file"
 	},
+
+	"Variable Swap":
+	{
+		"prefix": "swap",
+		"body":	[
+			"mov ${1:eax} ${2:[x]}",
+			"mov ${3:ecx} ${4:[y]}",
+			"mov ${4:[x]} ${1:ecx}",
+			"mov ${4:[y]} ${1:eax}"
+		],
+		"description": "Swaps two variables"
+	},
 	
 }
