@@ -3,15 +3,15 @@
 	{
 		"prefix": "forloop",
 		"body": [
-			"mov rcx, 0",
-			"\.back:",
-			"cmp ${1:rcx, 10}",
-			"${2:jge} .end\n",
-			"$3\n",
-			"inc rcx",
-			"jmp .back",
-			"\r.end:",
-			"ret"
+			"	mov rcx, 0",
+			".back:",
+			"	cmp ${1:rcx, 10}",
+			"	${2:jge} .end\n",
+			"	$3\n",
+			"	inc rcx",
+			"	jmp .back",
+			".end:",
+			"	ret"
 		],
 		"description": "For loop in assembly language"
 	},
