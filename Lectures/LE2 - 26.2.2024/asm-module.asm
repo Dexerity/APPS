@@ -81,7 +81,6 @@ navelka:
 
     global smallPos
 smallPos:
-
     movsx rsi, esi
     mov rax, 0x7FFFFFFFFFFFFF
     mov rcx, 0
