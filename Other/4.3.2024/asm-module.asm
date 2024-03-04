@@ -1,7 +1,7 @@
 bits 64
 section .data
 
-    extern facNum
+    extern facNum, printf
 
 section .text
 
@@ -28,16 +28,7 @@ twoSum:
 
     global arrRead
 arrRead:
-    mov rcx, 0
-.back:
-    cmp rcx, rsi
-    jge .end
-
-    mov edx, [rdi + rcx * 4]
-
-    inc rcx
-    jmp .back
-.end:
+    
     ret
     
     global intCmp
@@ -54,4 +45,40 @@ intCmp:
     ret
 .nonEqual:
     mov eax, 1
+    ret
+
+    global binSearch
+binSearch: 
+    mov ebx, esi         ;edi, esi, edx
+    ;sub ebx, 1
+    mov eax, 0
+.back:
+    cmp ebx, eax
+    jz .notF
+
+    shr esi, 1
+
+    mov ecx, esi
+    add ecx, eax
+
+    cmp edx, [edi + ecx * 4]
+    jl .less
+    je .equal
+    jg .greater
+
+.greater:
+    mov eax, ecx
+    inc eax
+    jmp .back
+
+.less:
+    mov ebx, ecx
+    jmp .back
+
+.equal:
+    mov eax, ecx
+    ret
+
+.notF:
+    mov eax, -1
     ret
