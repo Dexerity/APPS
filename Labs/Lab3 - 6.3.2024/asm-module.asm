@@ -92,11 +92,13 @@ str2int:
     global not_bits
 not_bits:
     mov rbx, 0
-    mov rcx, 0
+    mov rcx, rdx
+    sub rcx, 1
     mov r8, 0
+    movsx rbx, byte [rsi + rcx]
 .back:
-    cmp rcx, rdx
-    jge .end
+    cmp rcx, 0
+    jl .end
 
     movsx rax, byte [rsi + rcx]
     
@@ -105,13 +107,13 @@ not_bits:
     cmp rbx, rax
     je .equal
 
-    inc rbx
+    dec rbx
     shl r8, 1
     jmp .back
 
 .equal:
     add r8, 1
-    inc rcx
+    dec rcx
     jmp .back
 
 
@@ -122,7 +124,25 @@ not_bits:
 
     mov rax, r8
 
-    xor rax, [rdi]
+    xor [rdi], rax
+
+    mov rcx, 0
+    mov rbx, [rdi]
+    mov rax, 0
+.backE:
+    cmp rbx, 0
+    je .endE
+
+    mov rax, 1
+    and rax, rbx
+    shr rbx, 1
+    cmp rax, 1
+    jne .backE
+
+    inc rcx
+    jmp .backE
+.endE:
+    mov rax, rcx
     ret
 
 

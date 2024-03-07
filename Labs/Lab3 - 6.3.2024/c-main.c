@@ -15,7 +15,7 @@ int main(){
     int first = my_strchr(string, to_find, &count);
     char buff[255]="55";
     int num = 0;
-    long var = 0xf0f0f0, x;
+    long var = 0xf0f0f0;
     char array[] = {0, 1, 2, 10, 15};
     int size = 5;
 
@@ -26,9 +26,9 @@ int main(){
     printf("%d\n", num);
 
     printf("%lx\n", var);
-    x = not_bits(&var, array, size);
+    count = not_bits(&var, array, size);
     printf("%lx\n", var);
-    printf("%lx\n", x);
+    printf("Count - %d\n", count);
     
     return 0;
 }
